@@ -56,6 +56,9 @@ h1::before{
   position: absolute;
   bottom: -14px;
   border-radius: 18px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 h3{
   text-align: center;

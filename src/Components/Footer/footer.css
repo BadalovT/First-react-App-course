@@ -1,0 +1,13 @@
+.footer{
+    text-align: center;
+    background-color: #343a40;
+    margin-top: 20px;
+    padding: 30px 0;
+}
+.icon svg{
+    font-size: 35px;
+    color: aliceblue;
+}
+.icon svg:hover{
+    color: darkcyan!important;
+}

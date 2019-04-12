@@ -42,8 +42,9 @@ class Navigation extends Component {
     return (
       <div>
         <Router>
+          <div  className="header">
           <Container>
-          <Navbar color="light" light expand="md">
+          <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -78,6 +79,8 @@ class Navigation extends Component {
           </Collapse>
         </Navbar>
           </Container>
+          </div>
+         
         
         <Switch>
           <Route exact path="/" component={Home}/>
