@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import { Container, Row, Col } from 'reactstrap';
 import Slider from '../Slider/Slider';
-import Courses from '../Courses/Courses';
+import Books from '../Books/Books';
 import About from '../About/About';
 
  
@@ -11,7 +11,7 @@ class Home extends Component {
     return (
       <>
           <Slider/>
-          <Courses/>
+          <Books/>
           <About/>
       </>
     )

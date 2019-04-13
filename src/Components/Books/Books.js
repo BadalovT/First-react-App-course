@@ -1,19 +1,19 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import "./Courses.css";
+import "./Books.css";
 import axios from "axios";
 import Pagination from '../Pagination/Pagination';
 // require("bootstrap/less/bootstrap.less");
 
 
 
-export default class Courses extends React.Component {
+export default class Books extends React.Component {
   constructor(props) {
     super(props);
      
     this.state = {
           posts:[],
-          pageOfItems: []
+          pageOfItems: [] 
         }
         this.onChangePage = this.onChangePage.bind(this);
       }
@@ -31,8 +31,6 @@ export default class Courses extends React.Component {
         })
         
       }
-
-
       onChangePage(pageOfItems) {
         // update state with new page of items
         this.setState({ pageOfItems: pageOfItems });
@@ -45,8 +43,8 @@ export default class Courses extends React.Component {
     const postList=pageOfItems.length ? (
       pageOfItems.map(post=>{
         return(
-          <Col  md="4">
-            <div  className="block">
+          <Col key={post.id} md="4">
+            <div   className="block">
               <h3 key={post.id}>{post.title}</h3>
               <ul>
                       <li >

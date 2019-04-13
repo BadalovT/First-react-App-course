@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch,Link } from "react-router-dom";
 import Home from '../Home/Home';
 import About from '../About/About';
-import Courses from '../Courses/Courses';
+import Books from '../Books/Books';
+import AddBook from '../AddBook/AddBook';
+
 import  "./Navigation.css"
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,6 +22,7 @@ import {
   DropdownItem,
   Container,
    } from 'reactstrap';
+import AddForum from '../AddForum/AddForum';
 
   library.add(faHome);
 
@@ -56,23 +59,24 @@ class Navigation extends Component {
                 <Link className="nav-link" to="/about">Haqqimizda</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/courses">Kurslar</Link>
+                <Link className="nav-link" to="/books">Kitablar</Link>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Qiymetlerimiz
+                  Əlavə et
                 </DropdownToggle>
                 <DropdownMenu right>
+                <Link  to="/AddBook">
                   <DropdownItem>
-                    Option 1
+                      Kitab
                   </DropdownItem>
+                  </Link>
+                  <Link  to="/AddForum">
                   <DropdownItem>
-                    Option 2
+                      Sorgu
                   </DropdownItem>
+                  </Link>
                   {/* <DropdownItem divider /> */}
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
@@ -85,7 +89,11 @@ class Navigation extends Component {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/about" component={About}/>
-          <Route path="/courses" component={Courses}/>
+          <Route path="/books" component={Books}/>
+          <Route path="/addbook" component={AddBook}/>
+          <Route path="/addforum" component={AddForum}/>
+
+
 
         </Switch>
         </Router>
