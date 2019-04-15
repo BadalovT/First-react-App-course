@@ -45,6 +45,7 @@ class Navigation extends Component {
     return (
       <div>
         <Router>
+        <br/><br/>
           <div  className="header">
           <Container>
           <Navbar color="dark" dark expand="md">
@@ -56,29 +57,42 @@ class Navigation extends Component {
                 <Link exact className="nav-link" to="/"><FontAwesomeIcon icon={faHome} /></Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/about">Haqqimizda</Link>
+                <Link className="nav-link" to="/books">Kitablar</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/books">Kitablar</Link>
+                <Link className="nav-link" to="/AddBook">Kitab Əlavə et</Link>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Əlavə et
+                 Kategoriyalar
                 </DropdownToggle>
                 <DropdownMenu right>
-                <Link  to="/AddBook">
+                <Link  to="/">
                   <DropdownItem>
-                      Kitab
+                      Drama
                   </DropdownItem>
                   </Link>
-                  <Link  to="/AddForum">
+                  <Link  to="/">
                   <DropdownItem>
-                      Sorgu
+                      Antiutopik
+                  </DropdownItem>
+                  </Link>
+                  <Link  to="/">
+                  <DropdownItem>
+                      Romantik
+                  </DropdownItem>
+                  </Link>
+                  <Link  to="/">
+                  <DropdownItem>
+                      Trajedik
                   </DropdownItem>
                   </Link>
                   {/* <DropdownItem divider /> */}
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem>
+                <Link className="nav-link" to="/about">Haqqimizda</Link>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

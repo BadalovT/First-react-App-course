@@ -1,11 +1,36 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import axios from "axios";
+import { Container, Row, Col } from 'reactstrap';
+
+
 
 class AddBook extends Component {
+
+    changeHandler= e => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+    submitHandler =  e =>{
+        this.setState({loading: true})
+        e.preventDefault()
+        axios.post('https://jsonplaceholder.typicode.com/users/${this.state.id}', this.state)
+            .then (res=>{
+                this.setState({persons:res.data,loading: false, success: true})
+                    console.log(res)
+            }).catch((e) => {
+              this.setState({loading: false, error: true})
+          })
+          };
+
+
   render() {
     return (
       <div>
-         <Form onSubmit={this.submitHandler}>
+        <br/><br/>
+        <Container>
+          <Row>
+            <Col md="6">
+            <Form onSubmit={this.submitHandler}>
             <FormGroup>
             <Label for="examplePassword">Password</Label>
             <Input placeholder="id" type="text" name="id" onChange={this.changeHandler} />
@@ -22,32 +47,21 @@ class AddBook extends Component {
             </FormGroup>
             <FormGroup>
           <Label for="exampleText">Text Area</Label>
-          <Input type="textarea" name="text" id="exampleText" />
+          <Input  placeholder="id" type="text" name="id" onChange={this.changeHandler}/>
         </FormGroup>
         <FormGroup>
           <Label for="exampleFile">File</Label>
-          <Input type="file" name="file" id="exampleFile" />
+          <Input  placeholder="id" type="text" name="id" onChange={this.changeHandler}/>
           <FormText color="muted">
             This is some placeholder block-level help text for the above input.
             It's a bit lighter and easily wraps to a new line.
           </FormText>
         </FormGroup>
-        <Button>Submit</Button>
+        <Button type="submit">Submit</Button>
         </Form>
-
-
-         <form onSubmit={this.submitHandler}>
-            <div>
-                <input placeholder="id" type="text" name="id" onChange={this.changeHandler}/>
-            </div>
-            <div>
-                <input placeholder="name" type="text" name="name"  onChange={this.changeHandler}/>
-            </div>
-            <div>
-                <input placeholder="username" type="text" name="username"  onChange={this.changeHandler}/>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+            </Col>
+          </Row>
+        </Container>
       </div>
     )
   }

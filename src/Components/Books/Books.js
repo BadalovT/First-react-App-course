@@ -19,7 +19,7 @@ export default class Books extends React.Component {
       }
 
       componentDidMount(){
-        axios.get('https://jsonplaceholder.typicode.com/posts',this.state)
+        axios.get('https://jsonplaceholder.typicode.com/photos',this.state)
         .then(res => {
           this.setState({
             posts:res.data
@@ -44,8 +44,9 @@ export default class Books extends React.Component {
       pageOfItems.map(post=>{
         return(
           <Col key={post.id} md="4">
-            <div   className="block">
+            <div   className="block books-first">
               <h3 key={post.id}>{post.title}</h3>
+              <img src={post.url}/>
               <ul>
                       <li >
                        {post.body}
@@ -63,9 +64,11 @@ export default class Books extends React.Component {
         </div>
     );
     return (
+      <>
+      
       <Container>
         <div className="h1">
-            <h1>Kurslar ve Xidmetler</h1>
+            <h1>Kitablar</h1>
         </div>
         <Row>
           {postList}
@@ -73,6 +76,7 @@ export default class Books extends React.Component {
           <Pagination items={posts} onChangePage={this.onChangePage} />
         </Row>
       </Container>
+      </>
     );
   }
 }
