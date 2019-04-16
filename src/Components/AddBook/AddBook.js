@@ -24,7 +24,7 @@ class AddBook extends Component {
     submitHandler =  e =>{
         this.setState({loading: true})
         e.preventDefault()
-        axios.post('jsonplaceholder.typicode.com/photos/${this.state.id}', this.state)
+        axios.post('jsonplaceholder.typicode.com/photos', this.state)
             .then (res=>{
                 this.setState({posts:res.data,loading: false, success: true})
                     console.log(res)
@@ -44,11 +44,11 @@ class AddBook extends Component {
             <Form onSubmit={this.submitHandler}>
             <FormGroup>
             <Label for="name">Kitab Adi</Label>
-            <Input  placeholder="Adi daxil edin" type="text" name="name" onChange={this.changeHandler} />
+            <Input id="name"  placeholder="Adi daxil edin" type="text" name="name" onChange={this.changeHandler} />
             </FormGroup>
             <FormGroup>
             <Label for="Category">Kategoriya</Label>
-            <Input type="select" name="category" id="exampleSelect">
+            <Input id="Category" type="select" onChange={this.changeHandler} name="category" id="exampleSelect">
                 <option></option>
                 <option>Drama</option>
                 <option>Antiutopik</option>
@@ -58,11 +58,11 @@ class AddBook extends Component {
             </FormGroup>
             <FormGroup>
           <Label for="About">Kitab haqqinda</Label>
-          <Input  placeholder="Kitab haqqinda melumat daxil edin" type="text" name="about" onChange={this.changeHandler}/>
+          <Input id="About"  placeholder="Kitab haqqinda melumat daxil edin" type="textarea" name="about" onChange={this.changeHandler}/>
         </FormGroup>
         <FormGroup>
           <Label for="img">Shekil</Label>
-          <Input  placeholder="id" type="file" name="img" onChange={this.changeHandler}/>
+          <Input  id="img" type="file" name="img" onChange={this.changeHandler}/>
           <FormText color="muted">
             This is some placeholder block-level help text for the above input.
             It's a bit lighter and easily wraps to a new line.
@@ -74,13 +74,13 @@ class AddBook extends Component {
             <Col md="6">
               <div className="firstLook">
                   <Row>
-                    <Col md="4">
+                    <Col md="5">
                     <div className="book-img">
                       
-                        <img src={"./"/this.state.img}/>
+                        <img alt="sdvs" src={this.state.img}/>
                     </div>
                     </Col>
-                    <Col md="8">
+                    <Col md="7">
                         <h3>
                           {this.state.name}
                         </h3>
@@ -89,7 +89,6 @@ class AddBook extends Component {
                     <Col md="12">
                     <div>
                       <p> {this.state.about}</p>
-                     
                     </div>
                     </Col>
                   </Row>
