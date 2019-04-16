@@ -49,7 +49,7 @@ class Navigation extends Component {
           <div  className="header">
           <Container>
           <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand href="/">Book</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
